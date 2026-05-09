@@ -1,0 +1,18 @@
+{
+  "name": "week-4",
+  "version": "1.0.0",
+  "description": "1- What is Node.js? 2- What is Bun? 3- Starting a Node.js      Project 4- npm 5- Internal Packages 6- External Packages 7- package-lock.json 8- Assignments #1 - creating a cli (command line interface) 9- Assignment #2",
+  "main": "node.js",
+  "scripts": {
+    "start": "kaifyyy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "chalk": "^5.6.0",
+    "commander": "^14.0.0",
+    "express": "^5.1.0"
+  }
+}
