@@ -1,27 +1,16 @@
+import express from "express";
 import { Client } from "pg";
 
-async function insertData() {
-  const client = new Client({
-    host: "localhost",
-    port: 5432,
-    user: "mohdkaif",
-    password: "",
-    database: "postgres",
-  });
+const app = express();
 
-  try {
-    await client.connect();
+const pgClient = new Client({
+    connectionString:
+    "postgresql://neondb_owner:npg_h3mC9KDHLMFJ@ep-dark-hall-ap35ixpd-pooler.c-7.us-east-1.aws.neon.tech/neondb?sslmode=require",
+});
 
-    const insertQuery =
-      "INSERT INTO users (username, email, password) VALUES ('username2', 'user3@example.com', 'user_password');";
-    const res = await client.query(insertQuery);
-    console.log(res);
-    console.log("Insertion success:", res); // Output insertion result
-  } catch (err) {
-    console.error("Error during the insertion:", err);
-  } finally {
-    await client.end(); // Close the client connection
-  }
-}
+pgClient.connect();
 
-insertData();
+app.post("/signup", (req, res) => {
+    const response = await pgClient.query("INSERT INTO users (username, password) VALUES ($1, $2)", [req.body.username, req.body.password]);
+    res.json(response.rows);
+})
