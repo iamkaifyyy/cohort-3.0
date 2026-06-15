@@ -4,7 +4,7 @@ import { Client } from "pg"
 const app = express();
 app.use(express.json());
 
-const pgClient = new Client("postgresql://neondb_owner:npg_UzZ9nEq6Kwvu@ep-dark-hall-ap35ixpd-pooler.c-7.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require")
+const pgClient = new Client("fuck you use your own postgresql db")
 
 pgClient.connect();
 
